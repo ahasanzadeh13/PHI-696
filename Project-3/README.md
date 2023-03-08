@@ -184,14 +184,15 @@ For any question involving the use of Protege, please be sure to import:
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
+All of the answers below were given with the mindset that the categories offered are quite subjective to the possible ontologies they would be used in.
   (a) Bach's Well-Tempered Clavier
-    depending on whether we mean the music sheet/recording or the song itself, this could be classified as either a Generally Dependent Continuent or Process.
+    depending on whether we mean the music sheet/recording or the song itself, this could be classified as either a Generally Dependent Continuent, object, or a Process.
   (b) Chair of the UB Philosophy Department
     Role
   (c) SARS-CoV-2
     Object
   (d) Mexico City
-    I prefer to choose Site over Object Aggrogate. But 2D Spatial Region is the best choice.
+    I prefer to choose Site over Object Aggrogate. But 2D or 3D Spatial Regions are other choices.
   (e) The trunk of a minivan
     Fiat Object Part
   (f) Occupation
@@ -226,15 +227,13 @@ For any question involving the use of Protege, please be sure to import:
 ```
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
-![Project3Q8](https://user-images.githubusercontent.com/106703400/223338847-9105d7bd-d002-4367-8ab9-9fc2ea32f943.png)
-
 ```
-(Comment: This is a graph based on Mermaid, representing the following relations:
-– John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of dispositions.
+– John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of qualities.
 –  John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
-– A process realizes one’s disposition. So John’s beginning stage realizes John’s speed 1, John’s middle stage realizes John’s speed 2, and John’s final stage realizes John’s speed 3.
+– So John in the beginning stage has_quality speed 1, John in the middle stage has_quality speed 2, and John in the final stage has_quality speed 3.
 – Change in John’s speed: John's Speed 1 is decreased_in_magnitude_relative_to John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is increased_in_magnitude_relative_to John's Speed 3 (that is, speed 2＞speed 3)
-– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region.)
+– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region). 
+
 ```
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
@@ -246,3 +245,33 @@ For any question involving the use of Protege, please be sure to import:
 ```
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+
+```
+|----------------------------------------------------------------------------------------------------------------|
+|xxxxxxxxxxxxxxxxx| Functional | InverseFunction | Transitive | Symmetric | Asymmetric | Reflexive | Irreflexive |
+|-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
+|    Functional   |            |       YES       |     NO     |    YES    |     YES    |    YES    |     YES     |
+|-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
+| InverseFunction |    YES     |                 |     NO     |    YES    |     YES    |    YES    |     YES     |
+|-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
+|   Transitive    |     NO     |       NO        |            |    YES    |     NO     |    YES    |     NO      |
+|-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
+|    Symmetric    |    YES     |       YES       |     YES    |           |     NO     |    YES    |     YES     |
+|-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
+|    Asymmetric   |    YES     |       YES       |     NO     |    NO     |            |    NO     |     YES     |
+|-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
+|    Reflexive    |    YES     |       YES       |     Yes    |    YES    |     NO     |           |     NO      |
+|-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
+|   Irreflexive   |    YES     |       YES       |     NO     |    YES    |     YES    |    NO     |             |
+|----------------------------------------------------------------------------------------------------------------|
+
+Note: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
+As a result, we find that there are 7 sorts of cases where a pair of object property characteristics cannot be combined:
+ (1) The following 3 pairs cannot be combined because of a logical contradiction:
+Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive & Irreflexive.
+(2) The following 4 pairs cannot be combined because of a more subtle factor. That is, an assertion of transitivity leads to a result that the target object property becomes non-simple (see Baader's book: section 8.1, page 211), so it is beyond the capacity limit of the reasoner:
+Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive.
+
+```
+
+
