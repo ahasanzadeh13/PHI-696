@@ -273,5 +273,3 @@ Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive & Irreflexive.
 Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive.
 
 ```
-
-
