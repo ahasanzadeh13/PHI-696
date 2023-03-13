@@ -13,15 +13,17 @@ For any question involving the use of Protege, please be sure to import:
   (a)  Reflexive
   The object property, “overlaps”, should have the reflexive characteristic listed.
   It’s definition states: x overlaps y if and only if there exists some z such that x has part z and z part of y.
-  Reflexivity is the characteristic that expresses the relation that an entity be related to itself. 
+  Reflexivity is the characteristic that expresses the relation that an entity be related to itself.
   The object property “overlaps” should have reflexive as a listed characteristic since an object shares itself (and parts of itself) with itself.
 
   (b)  Transitive
   The object property, “existence ends with”, should have the transitive characteristic listed. 
-  It’s definition states: “x existence ends with y if and only if the time point at which x ends is equivalent to the time point at which y ends. 
+  It’s definition states: “x existence ends with y if and only if the time point at which x ends is equivalent to the time point at which y ends.
   Formally: x existence ends with y iff ω(x) = ω(y).” 
   That is, if any entity x ends at the equivalent time point of any other entity y, then they share the same object property, “existence ends with”.
-  Thus, any entity x that ends at a shared equivalent time point with entity y, and entity y ends at a shared equivalent time point with entity z, then entity x will share an end equivalent time point with entity z. If entity x shares the same object property, i.e. existence ends with, with entity z, then the relation must be       transitive. 
+  Thus, any entity x that ends at a shared equivalent time point with entity y, and entity y ends at a shared equivalent time point with entity z, 
+  then entity x will share an end equivalent time point with entity z. If entity x shares the same object property, i.e. 
+  existence ends with, with entity z, then the relation must be transitive. 
   Therefore, the object property “existence ends with” should have transitive as a listed characteristic. 
 
   (c)  Symmetric
@@ -57,7 +59,7 @@ For any question involving the use of Protege, please be sure to import:
   (b)  Transitive 
   The object property, “aligned with”, should not have the transitive property listed. 
   Imagine two lines of blocks that intersect at block B. Call one row 'Vertical' and the other 'Horizontal'. A is a block in Vertical, but not Horizontal. C is a block in Horizontal, but not Vertical. And B is in both Vertical and Horizontal. A is aligned with B, since they're in the same row, and B is aligned with C for the same reason, but A is not aligned with B.
-  For this object property, there is no definition expressed. Instead, there is an editor’s note that states: “May be obsoleted, see https://github.com/oborel/obo-relations/issues/260”. If you follow this link, you will see four collaborators deliberate on whether to make this term obsolete. It was cited that “aligned with” was used to define at least one widely used relation, “fasciculates with”. Upon searching this object property, it is now a subproperty of “overlaps”. Subsequently,   on October 15th, 2020, nlharris added the obsolete label to the term.
+  For this object property, there is no definition expressed. Instead, there is an editor’s note that states: “May be obsoleted, see https://github.com/oborel/obo-relations/issues/260”. If you follow this link, you will see four collaborators deliberate on whether to make this term obsolete. It was cited that “aligned with” was used to define at least one widely used relation, “fasciculates with”. Upon searching this object property, it is now a subproperty of “overlaps”. Subsequently, on October 15th, 2020, nlharris added the obsolete label to the term.
   Due to the fact that there lacks a definition and “aligned with” is insufficient to establish that it holds a transitive characteristic, the transitive characteristic should be unlisted. 
   Transitivity means that if individual x is related to individual y, and individual y is related to individual z, then individual x will be related to individual z. In other words, a single “hop” is implied over a chain of two along a given property if that property is transitive. 
   Based on its label, one cannot infer that “aligned with” necessitates a transitive relation between x and z. For example, x may share a border with y, y may share a border with z, but x may not share a border with z. It would be said that x is aligned with y (i.e. shares a border), but x is not aligned with z. 
@@ -75,25 +77,21 @@ For any question involving the use of Protege, please be sure to import:
 
   (d)  Functional 
   The object property, “characteristic of”, should not have the functional property listed.
-  It’s definition states: “a relation between a specifically dependent continuant (the characteristic) and any other entity(the bearer), in which the characteristic depends on the bearer for its existence.” 
-  The functional property relation means that for any given individual, the property can have at most one value. In other words, there can be at most one out going       relationship along the property for that individual. This means that a functional object property has a multiplicity 0..1 attached to it. For example, it might be     said that the continuant red is “characteristic of” Washington Red Delicious Apples. Or put in another way, this red color is a characteristic of this Washington Red   Delicious Apple. 
-  However, it is not the case that a given characteristic necessarily corresponds with at most one value, univocally. It could very well be the case that the red         characteristic of Washington Red Delicious Apples might also have another corresponding value in a red colored car of the same hue. This means that correspondence     between a characteristic and a bearer is not necessarily functional, i.e. has a binary value between 0 and 1 at most. 
-  A characteristic can have a one to one relationship to a bearer, a one to many relationship, a many to many relationship, or a many to one relationship. 
-  What could be the explanation of why this object property was set to having the functional characteristic? Upon further analysis, one can find a note in the           ontology:
-  “Note that this relation was previously called "inheres in", but was changed to be called "characteristic of" because BFO2 uses "inheres in" in a more restricted       fashion. This relation differs from BFO2:inheres_in in two respects: (1) it does not impose a range constraint, and thus it allows qualities of processes, as well as   of information entities, whereas BFO2 restricts inheres_in to only apply to independent continuants (2) it is declared functional, i.e. something can only be a         characteristic of one thing.”
-  (2) states: “it is declared, i.e. something can only be a characteristic of one thing.” What one might infer from this declaration is that this was done for           pragmatic purposes in order to elicit preferred inference relations without having to deal with the burden of unwanted inferences to irrelevant elements. So for       example, by declaring a functional constraint on “characteristic of” the ontologist could make pragmatic use of a delimited ontology that always garners a one to one   relation, rather than a one to many, and so on. As a result, if the reasoner is run the functional constraint set will restrict the domain to one to one functional     relations only. Thereby granting the conditions for a more specific, restricted ontology.
-  However, I must make a case for unlisting the functional characteristic. If I was an ontologist seeking to construct a knowledge base outside of a delimited domain     of one to one functional relationships and wanted to represent the class of all red things, then I ought to unlist the functional characteristic so that the object     property relation “characteristic of” could represent and infer a one to many relationship, which is not functional by definition, i.e. 0..1..X.
-  Thus, although the “characteristic of” object property has the functional characteristic listed likely for pragmatic purposes, I argue that it would be better to       dispense with it if one’s aim is to represent relations that are one to many, many to one, or many to many. 
+  It’s definition states: “a relation between a specifically dependent continuant (the characteristic) and any other entity(the bearer), in which the characteristic depends on the bearer for its existence.” The functional property relation means that for any given individual, the property can have at most one value. In other words, there can be at most one out going relationship along the property for that individual. This means that a functional object property has a multiplicity 0..1 attached to it. For example, it might be said that the continuant red is “characteristic of” Washington Red Delicious Apples. Or put in another way, this red color is a characteristic of this Washington Red Delicious Apple. 
+  However, it is not the case that a given characteristic necessarily corresponds with at most one value, univocally. It could very well be the case that the red characteristic of Washington Red Delicious Apples might also have another corresponding value in a red colored car of the same hue. This means that correspondence between a characteristic and a bearer is not necessarily functional, i.e. has a binary value between 0 and 1 at most. 
+  A characteristic can have a one to one relationship to a bearer, a one to many relationship, a many to many relationship, or a many to one relationship. What could be the explanation of why this object property was set to having the functional characteristic? Upon further analysis, one can find a note in the ontology:
+“Note that this relation was previously called "inheres in", but was changed to be called "characteristic of" because BFO2 uses "inheres in" in a more restricted fashion. This relation differs from BFO2:inheres_in in two respects: (1) it does not impose a range constraint, and thus it allows qualities of processes, as well as  of information entities, whereas BFO2 restricts inheres_in to only apply to independent continuants (2) it is declared functional, i.e. something can only be a characteristic of one thing.”
+  (2) states: “it is declared, i.e. something can only be a characteristic of one thing.” What one might infer from this declaration is that this was done for pragmatic purposes in order to elicit preferred inference relations without having to deal with the burden of unwanted inferences to irrelevant elements. So for example, by declaring a functional constraint on “characteristic of” the ontologist could make pragmatic use of a delimited ontology that always garners a one to one relation, rather than a one to many, and so on. As a result, if the reasoner is run the functional constraint set will restrict the domain to one to one functional relations only. Thereby granting the conditions for a more specific, restricted ontology.
+  However, I must make a case for unlisting the functional characteristic. If I was an ontologist seeking to construct a knowledge base outside of a delimited domain of one to one functional relationships and wanted to represent the class of all red things, then I ought to unlist the functional characteristic so that the object property relation “characteristic of” could represent and infer a one to many relationship, which is not functional by definition, i.e. 0..1..X.
+  Thus, although the “characteristic of” object property has the functional characteristic listed likely for pragmatic purposes, I argue that it would be better to dispense with it if one’s aim is to represent relations that are one to many, many to one, or many to many. 
 
   (e)  Inverse Functional
   The object property, “has characteristic”, should not have the inverse functional property listed.
-  It’s definition is the inverse of “characteristic of” (from [d]). The “characteristic of” object property’s definition is: “a relation between a specifically           dependent continuant (the characteristic) and any other entity(the bearer), in which the characteristic depends on the bearer for its existence.”
+  It’s definition is the inverse of “characteristic of” (from [d]). The “characteristic of” object property’s definition is: “a relation between a specifically dependent continuant (the characteristic) and any other entity(the bearer), in which the characteristic depends on the bearer for its existence.”
   This answer relies on what was said in (d), but is its inversion. 
-  Like the functional characteristic, the inverse functional property relation means that for any given individual, the property can have at most one value. In other     words, there can be at most one out going relationship along the property for that individual. This means that an inverse functional object property has a             multiplicity 0..1 attached to it. For example, it might be said that apples “has characteristic” color red. Or put in another way, this apple has this characteristic   color red.
-  However, it is not the case that a given bearer necessarily corresponds with at most one characteristic value, univocally. It could very well be the case that a car   might also have another corresponding value in a color red of the same hue. This means that correspondence between a characteristic and a bearer is not necessarily     functional, i.e. has a binary value between 0 and 1 at most. 
-  A bearer can have a one to one relationship to a characteristic, a one to many relationship, a many to many relationship, or a many to one relationship.
-  As discussed in (d), it is inferred that as “characteristic of” was declared functional likely for pragmatic purposes, its inverse, “has characteristic”, follows the   same constraints for the same reasons. Thus, the reason for which why I would like to make the case that the object property “has characteristic” should be unlisted   are based on the same premises argued for in (d). That is, if I was an ontologist seeking to construct a knowledge base outside of a delimited domain of one to one     functional relationships and wanted to represent the class of all bearers that have the characteristic color red, then I ought to unlist the inverse functional         characteristic so that the object property relation “has characteristic” could represent and infer a many to one relationship or one to many relationship, which is     not functional by definition, i.e. X…1 and 0..1..X.
-  Thus, although the “has characteristic” object property has the inverse functional characteristic listed likely for pragmatic purposes, I argue that it would be       better to dispense with it if one’s aim is to represent relations that are many to one, one to many, or many to many. 
+  Like the functional characteristic, the inverse functional property relation means that for any given individual, the property can have at most one value. In other words, there can be at most one out going relationship along the property for that individual. This means that an inverse functional object property has a multiplicity 0..1 attached to it. For example, it might be said that apples “has characteristic” color red. Or put in another way, this apple has this characteristic   color red. However, it is not the case that a given bearer necessarily corresponds with at most one characteristic value, univocally. It could very well be the case that a car   might also have another corresponding value in a color red of the same hue. This means that correspondence between a characteristic and a bearer is not necessarily functional, i.e. has a binary value between 0 and 1 at most. 
+  A bearer can have a one to one relationship to a characteristic, a one to many relationship, a many to many relationship, or a many to one relationship. As discussed in (d), it is inferred that as “characteristic of” was declared functional likely for pragmatic purposes, its inverse, “has characteristic”, follows the same constraints for the same reasons. Thus, the reason for which why I would like to make the case that the object property “has characteristic” should be unlisted are based on the same premises argued for in (d). That is, if I was an ontologist seeking to construct a knowledge base outside of a delimited domain of one to one functional relationships and wanted to represent the class of all bearers that have the characteristic color red, then I ought to unlist the inverse functional characteristic so that the object property relation “has characteristic” could represent and infer a many to one relationship or one to many relationship, which is not functional by definition, i.e. X…1 and 0..1..X.
+  Thus, although the “has characteristic” object property has the inverse functional characteristic listed likely for pragmatic purposes, I argue that it would be better to dispense with it if one’s aim is to represent relations that are many to one, one to many, or many to many. 
 
 ```
 
@@ -117,7 +115,7 @@ For any question involving the use of Protege, please be sure to import:
   Liver is a class in Uberon (UBERON_0002107), which is a subclass of material entity. 
   https://ontobee.org/ontology/UBERON?iri=http://purl.obolibrary.org/obo/UBERON_0002107
   Argument according to authority BS for the object property has_part_at_all_times: https://youtu.be/fkkWkTIxrNQ
-  Liver has_part_at_all_times Cell
+  Liver has_part_at_all_times some Cell
 
   (c) John was a child, then an adult, then a senior.
   John is an instance_of object
@@ -132,6 +130,7 @@ For any question involving the use of Protege, please be sure to import:
   Marriage is an instance_of occurent
   “Three years span 1” is an instance_of one-dimensional temporal region.
   Notice that the original phrase doesn’t say anything about Goofus and Gallant being married to each other, and we won’t represent such a fact.
+  t1 is an instance_of zero-dimensional temporal region.
   If zero-dimensional temporal region t1 is part_of the one-dimensional temporal region “three years span 1”, then Goofus participates in marriage at t1 and Galland participates in marriage at t1.
 
 ```
@@ -139,7 +138,7 @@ For any question involving the use of Protege, please be sure to import:
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-   ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+   ∃x (Tx ∧ ∃y (Hsy ∧ Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy ∧ Ay))
    T: Tuesday
    H: has
    A: arm
@@ -147,7 +146,7 @@ For any question involving the use of Protege, please be sure to import:
    s: Sally
 
   (b) Every liver has some cell as part at all times it exists.
-   ∀x∃y(Lx→Cy∧Pyx)
+   ∀x∃y(Lx → (Cy ∧ Pyx))
    L: liver
    C: cell
    P: part of
@@ -158,7 +157,7 @@ For any question involving the use of Protege, please be sure to import:
    C (x, t) = being a child at t
    A (x, t) = being an adult at t
    S (x, t) = being a senior at t
-   ∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3))
+   ∃t1∃t2∃t3(C(j, t1) ∧ A(J, t2) ∧ S(J, t3) ∧ E(t1, t2) ∧ E(t2, t3))
 
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
    Again, notice we are not modeling that Goofus and Gallant are married to each other.
@@ -167,7 +166,7 @@ For any question involving the use of Protege, please be sure to import:
    g1 = Goofus
    g2 = Gallant
    D(t) = t is a day
-   ∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+   ∀t(D(t) ∧ Y(t) → (M(g1, t) ∧ M(g2, t)))
 
 ```
 
@@ -186,38 +185,39 @@ For any question involving the use of Protege, please be sure to import:
 ```
 All of the answers below were given with the mindset that the categories offered are quite subjective to the possible ontologies they would be used in.
   (a) Bach's Well-Tempered Clavier
-    depending on whether we mean the music sheet/recording or the song itself, this could be classified as either a Generally Dependent Continuent, object, or a Process.
+    depending on whether we mean the music sheet/recording or the song itself, this could be classified as either a Generally Dependent Continuent, Object, or a Process.
   (b) Chair of the UB Philosophy Department
     Role
   (c) SARS-CoV-2
-    Object
+    Object/Material entity (e.g. virus) or Disposition (e.g. disease symptoms)
   (d) Mexico City
-    I prefer to choose Site over Object Aggrogate. But 2D or 3D Spatial Regions are other choices.
+    I prefer to choose Site over Object Aggrogate. But 2D or 3D Spatial Regions are other choices. It could technically be taken as an Instance depending on the ontology
   (e) The trunk of a minivan
-    Fiat Object Part
+    Fiat Object Part. But Site might be an option if the idea is to classify it as a matter of spaces used.
   (f) Occupation
     Role
   (g) Ocean
-    Site is my top choice since the water level of the ocean is not of our concern, but to be safe, a 3D Spatial Region may be a good option as well. I am resisting to pick Object Aggrogate as an option
+    Site is my top choice since the water level of the ocean is not of our concern, but to be safe, a 2D or 3D Spatial Region may be a good option as well. I am resisting to pick Object Aggrogate as an option
   (h) Lake
-    For the same reasons above, I will prefer to choose Site or 3D Spatial Region. A lake can go dry and will still be considered as a lake (Salt lake and Urumieh lakes in Iran)
+    For the same reasons above, I will prefer to choose Site or 2D/3D Spatial Region. A lake can go dry and will still be considered as a lake (Salt lake and Orumieh lakes in Iran)
 
 ```
 
 7. True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
-    False. By definition, according to the axioms in BFO, Material Entity and Immaterial Entity are disjoint. Thus, there cannot be a single part of a material entity which an immaterial entity.
+    True. Smith’s textbook: “Immaterial entities listed under 1. (boundaries and sites) are in some cases continuant parts of their material.” (p. 108)
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
     False. According to the same axioms as mentions above, a Material Entity is disjoint with "part of some Material Entity" according to BFO.
   (c) An organization may have another organization as part.
     True. The organization United States Government has the Organization Department of Aggroculture as its part.
   (d) An organization may have no members as part.
-    True. A club can lose its all members and regain some members in the next year. (of course one could argue whether it is the same club or not)
+    True. If the debate club is viewed as a role,  the debate club could lose all its members while still being recognized by the school. It would be false if the debate club is viewed as an object aggregate because as an OA is the sum of its parts, by virtue of losing its members, it loses its necessary parts to being an OA.
   (e) Any site is partially bounded by some instance of Material Entity.
     Flase. By the BFO defintion of Site, it must be wholy or partially bounded by a material entity or may be a three-dimensional immaterial part of an immaterial entity (partially or wholly) bounded by a material entity. 
   (f) A book placed under the leg of a wobbly table has acquired a new function.
-    False. Unless the book was an artifact made solely for the purpose of being used as described, functions are realizable entities that an object is precisely made or evolved for that purpose.
+    False. The book is an artifact and it was created for some specific purpose (which is usually banking some form of information). Even if the reason for its creation was to be put under a desk leg, it would not acquire such function when it has been put under the leg, but rather it has had it since it was made. 
+On the other hand, Disposition is a realizable entity. The book has the disposition of being used as a "table wobble-stopper" the same way that a chair has the disposition of "being used as a weapon to smack someone over the head with." Dispositions are realizable entities, meaning that they are acquired depending on the physicality and the situation of use.
   (g) A glass vase cushioned with packing material for all time, has the disposition to break. 
     True. Disposition is relavent to the physicality of the object and not its environment.
   (h) Spacetime is a class in BFO.
@@ -229,7 +229,7 @@ All of the answers below were given with the mindset that the categories offered
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 ```
 – John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of qualities.
-–  John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
+– John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
 – So John in the beginning stage has_quality speed 1, John in the middle stage has_quality speed 2, and John in the final stage has_quality speed 3.
 – Change in John’s speed: John's Speed 1 is decreased_in_magnitude_relative_to John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is increased_in_magnitude_relative_to John's Speed 3 (that is, speed 2＞speed 3)
 – John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region). 
@@ -254,7 +254,7 @@ All of the answers below were given with the mindset that the categories offered
 |-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
 | InverseFunction |    YES     |                 |     NO     |    YES    |     YES    |    YES    |     YES     |
 |-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
-|   Transitive    |     NO     |       NO        |            |    YES    |     NO     |    YES    |     NO      |
+|   Transitive    |    NO      |       NO        |            |    YES    |     NO     |    YES    |     NO      |
 |-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
 |    Symmetric    |    YES     |       YES       |     YES    |           |     NO     |    YES    |     YES     |
 |-----------------|------------|-----------------|------------|-----------|------------|-----------|-------------|
@@ -265,9 +265,9 @@ All of the answers below were given with the mindset that the categories offered
 |   Irreflexive   |    YES     |       YES       |     NO     |    YES    |     YES    |    NO     |             |
 |----------------------------------------------------------------------------------------------------------------|
 
-Note: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
+  Note: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
 As a result, we find that there are 7 sorts of cases where a pair of object property characteristics cannot be combined:
- (1) The following 3 pairs cannot be combined because of a logical contradiction:
+(1) The following 3 pairs cannot be combined because of a logical contradiction:
 Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive & Irreflexive.
 (2) The following 4 pairs cannot be combined because of a more subtle factor. That is, an assertion of transitivity leads to a result that the target object property becomes non-simple (see Baader's book: section 8.1, page 211), so it is beyond the capacity limit of the reasoner:
 Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive.
